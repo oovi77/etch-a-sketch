@@ -8,6 +8,14 @@ h1 {
 
 .grid-container {
     font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    /*
+    border: 1px solid paleturquoise;
+    width: 800px;
+    height: 800px;*/
 }
 
 .row {
@@ -23,8 +31,11 @@ h1 {
 
 .square {
     border: 1px solid blue;
+    
+    /*
     width: 30px;
     height: 30px;
+    */
 
     margin: 0px;
     padding: 0px;

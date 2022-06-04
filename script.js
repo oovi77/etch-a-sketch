@@ -9,6 +9,7 @@ const resetButton = document.querySelector("#reset-grid");
 
 
 
+
 /* Problem, when grid gets created it doesn't
 make the proper amount of squares when using the
 set grid button
@@ -24,6 +25,18 @@ set grid button
 - hover event listener to change color of grids
 - reset grid button to redraw grid and clear all the
 squares /set them to original colors
+
+
+make the CSS look better
+look into the add 10% black to the square
+
+set the grid size to have a max limit say 960px
+
+look into event bubbling for why one square
+starts of black in the grid
+
+change grid-container size and border after
+the grid gets created??
 
 */
 
@@ -48,6 +61,20 @@ function createGrid () {
     resetGrid();
 
     let numSquares = prompt("Please enter the number of squares per side for the grid", 4);
+
+    const gridSize = 800; //grid by default is 800px by 800px;
+
+    const squareSize = (gridSize / numSquares)-1;
+    console.log(`square size is: ${squareSize}`);
+    
+
+    gridContainer.style.width = gridSize + 'px';
+
+    gridContainer.style.height = gridSize + 'px';
+    gridContainer.style.border = "1px solid red";
+
+
+
 
     for (let j = 0; j < numSquares; j++) {
         //create a row in this loop and then 
@@ -76,6 +103,13 @@ function createGrid () {
             const div = document.createElement('div');
             div.classList.add('square');
             div.style.display = 'inline-block';
+            div.style.width = squareSize + 'px';
+            div.style.height = squareSize + 'px';
+
+            div.addEventListener("mouseover", function (event) {
+                event.target.style.backgroundColor = "black";
+                console.log("in Event");
+            })
 
             
 
@@ -88,9 +122,18 @@ function createGrid () {
                 div.style.display = "block";
             }*/
 
+
+            
         }
 
+        
+
     }
+
+   
+
+
+
 
     
 }
